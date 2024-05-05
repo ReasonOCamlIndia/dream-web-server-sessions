@@ -1,0 +1,9 @@
+{
+  "dependencies": {
+    "ocaml": "5.x",
+    "@opam/dune": "*"
+  },
+  "devDependencies": {
+    "@opam/ocaml-lsp-server": "*"
+  }
+}
