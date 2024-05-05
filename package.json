@@ -1,9 +1,28 @@
 {
+  "esy": {
+    "build": "dune build"
+  },
   "dependencies": {
     "ocaml": "5.x",
-    "@opam/dune": "*"
+    "@opam/dune": "*",
+    "@opam/reason": "*",
+    "@opam/dream": "*"
   },
   "devDependencies": {
+    "@opam/ocamlformat": "*",
+    "@opam/ocamlformat-rpc": "*",
     "@opam/ocaml-lsp-server": "*"
+  },
+  "resolutions": {
+    "esy-openssl": "esy-packages/esy-openssl#619ae2d",
+    "@opam/conf-libssl": {
+      "source": "no-source:",
+      "override": {
+	"dependencies": {
+	  "esy-openssl": "*"
+	}
+      }
+    },
+    "yarn-pkg-config": "ManasJayanth/esy-pkg-config:esy.json#487c3ec9b6848dfb4cb37b2530054a7f41dd8ba7"
   }
 }

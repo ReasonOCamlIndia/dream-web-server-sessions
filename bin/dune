@@ -1,0 +1,4 @@
+(executable
+ (public_name reason_india_website)
+ (name main)
+ (libraries reason_india_website dream))

@@ -1,0 +1,8 @@
+{
+  "esy": {
+    "build": "which pkg-config"
+  },
+  "dependencies": {
+    "esy-pkg-config": "0.29.2001"
+  }
+}
