@@ -1,0 +1,7 @@
+(melange.emit
+ (alias client)
+ (target app)
+ (libraries melange reason_india_website_js reason-react)
+ (preprocess
+  (pps reason-react-ppx melange.ppx))
+ (module_systems commonjs))

@@ -1,12 +1,26 @@
 {
+  "installConfig": {
+    "pnp": false
+  },
   "esy": {
+    "buildsInSource": "_build",
     "build": "dune build"
   },
+  "scripts": {
+    "bundle": "webpack"
+  },
   "dependencies": {
-    "ocaml": "5.x",
+    "@opam/dream": "*",
     "@opam/dune": "*",
     "@opam/reason": "*",
-    "@opam/dream": "*"
+    "@opam/reason-react": "*",
+    "@opam/reason-react-ppx": "*",
+    "@opam/server-reason-react": "0.2.0",
+    "webpack-cli": "5.x",
+    "webpack": "5.x",
+    "react": "18.x",
+    "react-dom": "18.x",
+    "ocaml": "5.x"
   },
   "devDependencies": {
     "@opam/ocamlformat": "*",

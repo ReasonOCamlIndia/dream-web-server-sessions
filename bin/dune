@@ -1,4 +1,9 @@
 (executable
  (public_name reason_india_website)
  (name main)
- (libraries reason_india_website dream))
+ (preprocess (pps server-reason-react.ppx))
+ (libraries reason_india_website
+            dream
+            reason_india_website_native
+            server-reason-react.react
+            server-reason-react.reactDom))

@@ -6,7 +6,6 @@ bug-reports: "https://github.com/janestreet/base/issues"
 dev-repo: "git+https://github.com/janestreet/base.git"
 doc: "https://ocaml.janestreet.com/ocaml-core/latest/doc/base/index.html"
 license: "MIT"
-available: os != "win32" # https://github.com/ocaml/opam-repository/issues/24151
 build: [
   ["dune" "build" "-p" name "-j" jobs]
 ]
@@ -33,9 +32,9 @@ provided by companion libraries such as stdio:
   https://github.com/janestreet/stdio
 "
 url {
-  src: "https://github.com/janestreet/base/archive/refs/tags/v0.16.2.tar.gz"
+  src: "https://github.com/janestreet/base/archive/refs/tags/v0.16.3.tar.gz"
   checksum: [
-    "md5=e0fbb6fd77d85b5de4766ce5d9593af2"
-    "sha512=d5f00c411dbdffe6cabc7ec309550c4f947e79c9ff6c95cbb2d148fd0bbff060db8019c9544c1db56172a6d143f810e700d7092d404ba6cbcd756cbaa896813f"
+    "md5=04572fc23a4651604cfcab83f720cb4c"
+    "sha512=69380ed392faf4495459f97f70a10a6959fce71d2e6ba093472fc272141646307fd7872407de855dfa48ef0435f6587eae5aa50f4a67eac40a9e1946d0c3c070"
   ]
 }
