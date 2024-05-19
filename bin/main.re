@@ -32,8 +32,9 @@ let hello_route_handler = _request =>
   );
 
 let hello_route: Dream.route = Dream.get("/", hello_route_handler);
+let statics_route: Dream.route =  Dream.get("/static/**", Dream.static("./static"));
 
-let handler = Dream.router([hello_route]);
+let handler = Dream.router([hello_route, statics_route]);
 
 // request => promise(response)
 Dream.run(~port=8000, ~interface="localhost", handler);

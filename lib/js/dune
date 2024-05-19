@@ -1,0 +1,8 @@
+(library
+ (name reason_india_website_js)
+ (modes melange)
+ (libraries melange reason-react)
+ (preprocess
+  (pps melange.ppx reason-react-ppx)))
+
+(copy_files# "../native/*.re")
