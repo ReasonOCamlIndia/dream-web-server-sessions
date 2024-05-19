@@ -1,8 +1,8 @@
-[![Build and test the esy package](https://github.com/ManasJayanth/esy-pkg-config/actions/workflows/workflow.yml/badge.svg)](https://github.com/ManasJayanth/esy-pkg-config/actions/workflows/workflow.yml)
+[![Build and test the esy package](https://github.com/ManasJayanth/esy-openssl/actions/workflows/workflow.yml/badge.svg)](https://github.com/ManasJayanth/esy-openssl/actions/workflows/workflow.yml)
 
-# esy-pkg-config
+# esy-openssl
 
-`esy-pkg-config` is [`freedesktop's pkg-config`](https://www.freedesktop.org/wiki/Software/pkg-config/), packaged for [`esy`](https://esy.sh/).
+`esy-openssl` is sample package, [`openssl`](https://www.openssl.org), packaged for [`esy`](https://esy.sh/).
 
 ## Why
 `esy` can not only fetch and install Reason and OCaml libraries and tools,
@@ -12,22 +12,22 @@ etc. Users don't have to install them separately, nor have to worry if
 they have installed the correct version. Read more at the docs about
 [benefits for opting for esy packages](https://esy.sh#TODO).
 
-## How to use `esy-pkg-config`?
+## How to use `esy-openssl`?
 
-`esy-pkg-config` can be used from both NPM and directly from Github.
+`esy-openssl` can be used from both NPM and directly from Github.
 
 ### From NPM 
 
-`esy-pkg-config` is deployed on NPM can be found
+`esy-openssl` is deployed on NPM can be found
 [here](https://www.npmjs.com/package/TODO).
 
-You can simply run `esy add esy-pkg-config` to install it, or specify it in
+You can simply run `esy add esy-openssl` to install it, or specify it in
 `package.json` and run `esy`.
 
 ```diff
 {
   "dependencies": {
-+   "esy-pkg-config": "*"
++   "esy-openssl": "*"
   }
 }
 ```
@@ -37,7 +37,7 @@ You can simply run `esy add esy-pkg-config` to install it, or specify it in
 ```json
 {
   "dependencies": {
-    "esy-pkg-config": "esy-packages/esy-pkg-config"
+    "esy-openssl": "esy-packages/esy-openssl"
   }
 }
 ```
@@ -48,7 +48,7 @@ To use a specific commit,
 
 ```diff
   "dependencies": {
-+   "esy-pkg-config": "esy-packages/esy-pkg-config#<commit hash>"
++   "esy-openssl": "esy-packages/esy-openssl#<commit hash>"
   }
 ```
 
@@ -119,7 +119,7 @@ package with a `package.json` or `esy.json` depends on it.
 ```json
 {
   "dependencies": {
-    esy-pkg-config": "*"
+    esy-openssl": "*"
   }
 }
 ```
