@@ -10,12 +10,13 @@ build: [
   ["dune" "build" "-p" name "-j" jobs]
 ]
 depends: [
-  "ocaml"             {>= "4.14.0"}
-  "sexplib0"          {>= "v0.16" & < "v0.17"}
-  "dune"              {>= "2.0.0"}
+  "ocaml" {>= "5.1.0"}
+  "ocaml_intrinsics_kernel"
+  "sexplib0"                {>= "v0.17" & < "v0.18"}
+  "dune"                    {>= "3.11.0"}
   "dune-configurator"
-  "conf-bash"
 ]
+available: arch != "arm32" & arch != "x86_32"
 synopsis: "Full standard library replacement for OCaml"
 description: "
 Full standard library replacement for OCaml
@@ -32,9 +33,9 @@ provided by companion libraries such as stdio:
   https://github.com/janestreet/stdio
 "
 url {
-  src: "https://github.com/janestreet/base/archive/refs/tags/v0.16.3.tar.gz"
+  src: "https://github.com/janestreet/base/archive/refs/tags/v0.17.0.tar.gz"
   checksum: [
-    "md5=04572fc23a4651604cfcab83f720cb4c"
-    "sha512=69380ed392faf4495459f97f70a10a6959fce71d2e6ba093472fc272141646307fd7872407de855dfa48ef0435f6587eae5aa50f4a67eac40a9e1946d0c3c070"
+    "md5=6a3504bf4179654606f2785c057981e4"
+    "sha512=5828bfdad7e80183c4aa8b52e6ab06cc17c9f15cfbffc88827db8f8973a064813236d60b01358f838e58f2fea1f4499e6a7676bf081da443c1fb8a019d9fe7be"
   ]
 }
