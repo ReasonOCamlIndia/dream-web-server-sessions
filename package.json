@@ -14,15 +14,23 @@
     "@opam/ocaml-lsp-server": "*"
   },
   "resolutions": {
-    "esy-openssl": "esy-packages/esy-openssl#619ae2d",
+    "esy-gmp": "esy-packages/esy-gmp:package.json#58aa36e793a20f24da415a4ee98223c596bd546e",
     "@opam/conf-libssl": {
-      "source": "no-source:",
+      "version": "opam:4",
       "override": {
-	"dependencies": {
-	  "esy-openssl": "*"
-	}
+        "dependencies": {
+          "esy-openssl": "*"
+        }
       }
     },
-    "yarn-pkg-config": "ManasJayanth/esy-pkg-config:esy.json#487c3ec9b6848dfb4cb37b2530054a7f41dd8ba7"
+    "@opam/conf-pkg-config": {
+      "source": "no-source:",
+      "override": {
+        "dependencies": {
+          "esy-pkg-config": "*"
+        }
+      }
+    },
+    "esy-openssl": "ManasJayanth/esy-openssl:esy.json#9fa3c66632d4e5861a0a11c62f9237bba2af6f68"
   }
 }
