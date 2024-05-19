@@ -1,6 +1,35 @@
-let () = print_endline("Hello, World!");
+module Page = {
+  [@react.component]
+  let make = (~children, ~scripts=[]) => {
+    <html>
+      <head>
+        <meta charSet="UTF-8" />
+        <meta
+          name="viewport"
+          content="width=device-width, initial-scale=1.0"
+        />
+        <title> {React.string("Server Reason React demo")} </title>
+        <link
+          rel="shortcut icon"
+          href="https://reasonml.github.io/img/icon_50.png"
+        />
+      </head>
+      <body>
+        <div id="root"> children </div>
+        {scripts |> List.map(src => <script src />) |> React.list}
+      </body>
+    </html>;
+  };
+};
 
-let hello_route_handler = _request => Dream.html("<h1>hello, world</h1>");
+let hello_route_handler = _request =>
+  Dream.html(
+    ReactDOM.renderToString(
+      <Page scripts=["/static/app.js"]>
+        <Reason_india_website_native.App />
+      </Page>,
+    ),
+  );
 
 let hello_route: Dream.route = Dream.get("/", hello_route_handler);
 
