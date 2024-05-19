@@ -6,7 +6,9 @@
     "ocaml": "5.x",
     "@opam/dune": "*",
     "@opam/reason": "*",
-    "@opam/dream": "*"
+    "@opam/dream": "*",
+    "@opam/server-reason-react": "*",
+    "@opam/reason-react": "*"
   },
   "devDependencies": {
     "@opam/ocamlformat": "*",
