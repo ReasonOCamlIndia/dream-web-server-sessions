@@ -1,7 +1,11 @@
 (library
  (name reason_india_website_native)
  (libraries
+   styled-ppx.emotion_native
+   styled-ppx.css_native
    server-reason-react.react
    server-reason-react.reactDom)
  (preprocess
-  (pps server-reason-react.ppx)))
+  (pps styled-ppx --native
+       server-reason-react.melange_ppx
+       server-reason-react.ppx)))
