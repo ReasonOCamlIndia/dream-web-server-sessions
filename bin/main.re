@@ -1,7 +1,7 @@
 module Page = {
   [@react.component]
-  let make = (~children, ~scripts=[]) => {
-    <html>
+  let make = (~children, ~scripts=[], ~stylesheet) => {
+    <html style={ReactDOM.Style.make(~height="100%", ())}>
       <head>
         <meta charSet="UTF-8" />
         <meta
@@ -13,26 +13,32 @@ module Page = {
           rel="shortcut icon"
           href="https://reasonml.github.io/img/icon_50.png"
         />
+        <style> {React.string(stylesheet)} </style>
       </head>
-      <body>
-        <div id="root"> children </div>
+      <body style={ReactDOM.Style.make(~height="100%", ())}>
+        <div id="root" style={ReactDOM.Style.make(~height="100%", ())}>
+          children
+        </div>
         {scripts |> List.map(src => <script src />) |> React.list}
       </body>
     </html>;
   };
 };
 
-let hello_route_handler = _request =>
+let hello_route_handler = _request => {
+  let stylesheet = CssJs.render_style_tag();
   Dream.html(
     ReactDOM.renderToString(
-      <Page scripts=["/static/app.js"]>
+      <Page stylesheet scripts=["/static/app.js"]>
         <Reason_india_website_native.App />
       </Page>,
     ),
   );
+};
 
 let hello_route: Dream.route = Dream.get("/", hello_route_handler);
-let statics_route: Dream.route =  Dream.get("/static/**", Dream.static("./static"));
+let statics_route: Dream.route =
+  Dream.get("/static/**", Dream.static("./static"));
 
 let handler = Dream.router([hello_route, statics_route]);
 
