@@ -1,7 +1,7 @@
 (executable
  (public_name reason_india_website)
  (name main)
- (preprocess (pps server-reason-react.ppx))
+ (preprocess (pps server-reason-react.ppx     server-reason-react.melange_ppx))
  (libraries reason_india_website
             dream
             server-reason-react.react

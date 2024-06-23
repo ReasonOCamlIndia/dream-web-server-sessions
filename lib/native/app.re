@@ -4,20 +4,20 @@ let useState = a => {
   (value, setValueStatic);
 };
 
-
-module Container = [%styled.section {|
+module Container = [%styled.section
+  (~blah) => {|
   height: 100%;
   width: 100%;
-  display: flex;
+  display: $(blah);
   align-items: center;
   justify-content: center;
-|}];
-
+|}
+];
 
 [@react.component]
 let make = () => {
   let (count, setCount) = useState(0);
-  <Container>
+  <Container blah=`flex>
     <section className="centered">
       <section>
         {React.string(" clicked " ++ Int.to_string(count) ++ " times")}

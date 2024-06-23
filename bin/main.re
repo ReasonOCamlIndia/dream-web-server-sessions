@@ -1,6 +1,8 @@
 module Page = {
   [@react.component]
-  let make = (~children, ~scripts=[], ~stylesheet) => {
+  let make = (~scripts=[], ~appHTMLString) => {
+    print_endline("Inside component <<<<<<");
+    let stylesheet = CssJs.render_style_tag();
     <html style={ReactDOM.Style.make(~height="100%", ())}>
       <head>
         <meta charSet="UTF-8" />
@@ -16,9 +18,11 @@ module Page = {
         <style> {React.string(stylesheet)} </style>
       </head>
       <body style={ReactDOM.Style.make(~height="100%", ())}>
-        <div id="root" style={ReactDOM.Style.make(~height="100%", ())}>
-          children
-        </div>
+        <div
+          dangerouslySetInnerHTML={"__html": appHTMLString}
+          id="root"
+          style={ReactDOM.Style.make(~height="100%", ())}
+        />
         {scripts |> List.map(src => <script src />) |> React.list}
       </body>
     </html>;
@@ -26,12 +30,11 @@ module Page = {
 };
 
 let hello_route_handler = _request => {
-  let stylesheet = CssJs.render_style_tag();
+  let appHTMLString =
+    ReactDOM.renderToString(<Reason_india_website_native.App />);
   Dream.html(
     ReactDOM.renderToString(
-      <Page stylesheet scripts=["/static/app.js"]>
-        <Reason_india_website_native.App />
-      </Page>,
+      <Page scripts=["/static/app.js"] appHTMLString />,
     ),
   );
 };
