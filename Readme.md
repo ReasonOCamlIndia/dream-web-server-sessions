@@ -1,4 +1,4 @@
-# Reason India session 1
+# Reason India Dream web servers
 
 So far, we wrote a hello world Dream server.
 
