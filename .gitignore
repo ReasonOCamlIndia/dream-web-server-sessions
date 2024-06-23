@@ -3,3 +3,4 @@ _esy
 *~
 static
 _build
+*.install
