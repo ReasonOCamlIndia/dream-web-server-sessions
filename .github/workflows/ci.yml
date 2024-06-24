@@ -12,22 +12,16 @@ jobs:
   deploy:
     strategy:
       matrix:
-        os: [ubuntu-latest, windows-latest, macos-13]
+        os: [ubuntu-latest, windows-latest, macos-13, macos-latest]
     name: Deploy
     runs-on: ${{ matrix.os }}
     steps:
       - uses: actions/checkout@v2
       - uses: actions/setup-node@v2
       - name: Install esy
-        run: npm install -g @esy-nightly/esy
-      - uses: esy/github-action@6a5070d392db3e8c776724674737cab37c07263d
+        run: npm install -g esy@dev
+      - uses: esy/github-action@prometheansacrifice/fix-prefix-not-passed-to-esy-commands
         with:
-          source-cache-key: 20240624-1
-          cache-key: ${{ hashFiles('esy.lock/index.json') }}-20240511-1
-      - name: Export esy cache
-        run: esy export-dependencies
-      - uses: actions/upload-artifact@v4.3.1
-        with:
-          name: dependencies-cache-${{ matrix.os }}
-          path: _export
+          source-cache-key: 20240626-1
+          cache-key: ${{ hashFiles('esy.lock/index.json') }}-20240626-1
 
