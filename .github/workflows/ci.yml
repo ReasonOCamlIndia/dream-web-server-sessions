@@ -22,7 +22,7 @@ jobs:
         run: npm install -g @esy-nightly/esy
       - uses: esy/github-action@6a5070d392db3e8c776724674737cab37c07263d
         with:
-          source-cache-key: 20240511-2
+          source-cache-key: 20240624-1
           cache-key: ${{ hashFiles('esy.lock/index.json') }}-20240511-1
       - name: Export esy cache
         run: esy export-dependencies
