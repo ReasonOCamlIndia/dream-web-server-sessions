@@ -20,6 +20,7 @@
     "@opam/reason-react": "*",
     "@opam/server-reason-react": "*",
     "@opam/styled-ppx": "0.56.0",
+    "@opam/routes": "*",
     "ocaml": "5.x",
     "react": "18.x",
     "react-dom": "18.x",
@@ -29,6 +30,7 @@
   },
   "resolutions": {
     "@opam/base": "v0.17.0",
+    "@opam/routes": "jchavarri/routes:routes.opam#57fb76038b429a6adb4e42aeef04cca7079fe157",
     "@opam/ocp-indent": "OCamlPro/ocp-indent:ocp-indent.opam#7c4d434132cebc15a8213c8be9e7323692eb0a2b",
     "esy-openssl": "ManasJayanth/esy-openssl:esy.json#9fa3c66632d4e5861a0a11c62f9237bba2af6f68"
   }

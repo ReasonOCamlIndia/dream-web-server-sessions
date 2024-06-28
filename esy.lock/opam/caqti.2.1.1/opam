@@ -15,7 +15,8 @@ depends: [
   "bigstringaf"
   "cmdliner" {with-test & >= "1.1.0"}
   "domain-name" {>= "0.2.0"}
-  "dune" {>= "2.5"}
+  "dune" {>= "3.9"}
+  "dune-site"
   "ipaddr" {>= "3.0.0"}
   "logs"
   "lwt-dllist"
@@ -24,14 +25,19 @@ depends: [
   "odoc" {with-doc}
   "ptime"
   "re" {with-test}
+  "tls"
   "uri" {>= "2.2.0"}
+  "x509"
 ]
 conflicts: [
   "result" {< "1.5"}
 ]
 build: [
-  ["dune" "build" "-p" name "-j" jobs]
-  ["dune" "runtest" "-p" name "-j" jobs] {with-test}
+  ["dune" "build" "-p" name "-j" jobs "@install"]
+  ["dune" "install" "-p" name "--create-install-file" name]
+  # The runtest invocation has been restricted to the caqti directory for
+  # this release due to a dependency issue in the testsuite directory.
+  ["dune" "runtest" "-p" name "-j" jobs "caqti"] {with-test}
   ["dune" "build" "@doc" "-p" name "-j" jobs] {with-doc}
 ]
 dev-repo: "git+https://github.com/paurkedal/ocaml-caqti.git"
@@ -54,10 +60,10 @@ decoding returned tuples. It is hoped that this agnostic choice makes it a
 suitable target for higher level interfaces and code generators."""
 url {
   src:
-    "https://github.com/paurkedal/ocaml-caqti/releases/download/v2.0.1/caqti-v2.0.1.tbz"
+    "https://github.com/paurkedal/ocaml-caqti/releases/download/v2.1.1/caqti-v2.1.1.tbz"
   checksum: [
-    "sha256=7eb57225c521fe25395653d960b1c381bb2b2ccae47bc2a827bb16611988da8b"
-    "sha512=eeafaf495b08fb8620ddee1711b8f9fa2ca0c79fb450a905c8d071806b7046d665e1e2ac0e7d3c7ca1258455decbf184e689e9ecb2453ec9d952b864f9dd14f4"
+    "sha256=483a535f41e2641917fc1832ce4ad15ffc3f4e8283b1b3018a2617349583090a"
+    "sha512=6a1222c0c55cb16a9d409980f9f2400340689b87e21aafed2d7459fd7feaeb109c2dfaf77f55f8422fbb7d3772342565ced7fed78a7b77af5aedab5bfd5ae882"
   ]
 }
-x-commit-hash: "7fb87f8f956ae84b191bc297f300649941110850"
+x-commit-hash: "91622d9b7dca6a96d86063496d252c8a761a37cc"
