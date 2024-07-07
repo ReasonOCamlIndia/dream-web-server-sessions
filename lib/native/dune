@@ -3,9 +3,11 @@
  (libraries
    styled-ppx.emotion_native
    styled-ppx.css_native
+   routes
    server-reason-react.react
    server-reason-react.reactDom)
  (preprocess
   (pps styled-ppx --native
+       server-reason-react.browser_ppx
        server-reason-react.melange_ppx
        server-reason-react.ppx)))

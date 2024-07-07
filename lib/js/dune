@@ -3,6 +3,8 @@
  (modes melange)
  (libraries styled-ppx.css styled-ppx.emotion melange reason-react)
  (preprocess
-  (pps styled-ppx melange.ppx reason-react-ppx)))
+  (pps
+    server-reason-react.browser_ppx -js
+    styled-ppx melange.ppx reason-react-ppx)))
 
 (copy_files# "../native/*.re")
