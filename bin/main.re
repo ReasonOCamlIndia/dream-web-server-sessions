@@ -1,3 +1,4 @@
+[@alert "-all--all+deprecated"];
 module Page = {
   [@react.component]
   let make = (~scripts=[], ~appHTMLString) => {
@@ -29,21 +30,44 @@ module Page = {
   };
 };
 
-let hello_route_handler = _request => {
+let renderPage = reactElement => {
   let appHTMLString =
-    ReactDOM.renderToString(<Reason_india_website_native.App />);
+    ReactDOM.renderToString(reactElement);
+  ReactDOM.renderToString(
+    <Page scripts=["/static/app.js"] appHTMLString />,
+  );
+}
+
+
+
+
+let hello_route_handler = request => {
+  let target = request
+  |> Dream.path
+  |> List.filter(p => !String.equal("", p))
+  |> String.concat("/");
+
+  print_endline("---------------");
+  print_endline(target);
+  
+  let reactElement = 
+    switch (Routes.match'(Reason_india_website_native.AppRouter.routes, ~target)) {
+    | Routes.FullMatch(e) => e()
+    | Routes.MatchWithTrailingSlash(e) => e()
+    | Routes.NoMatch => <p> {React.string("404")} </p>
+    };
+
   Dream.html(
-    ReactDOM.renderToString(
-      <Page scripts=["/static/app.js"] appHTMLString />,
-    ),
+    renderPage(reactElement)
   );
 };
 
-let hello_route: Dream.route = Dream.get("/", hello_route_handler);
 let statics_route: Dream.route =
   Dream.get("/static/**", Dream.static("./static"));
 
-let handler = Dream.router([hello_route, statics_route]);
+let hello_route: Dream.route = Dream.get("/**", hello_route_handler);
+
+let handler = Dream.router([statics_route, hello_route]);
 
 // request => promise(response)
 Dream.run(~port=8000, ~interface="localhost", handler);
