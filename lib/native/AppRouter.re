@@ -6,9 +6,20 @@ let homeRoute = Routes.(home() @--> (() => {
   <App />;
 }));
 
+
+
+module HelloContainer = [%styled.p
+   {|
+     color: red;
+|}
+];
+
 let helloRoute = Routes.(hello() @--> (() => {
   print_endline("in hello view");
-  <p> {React.string("In Hello")} </p>
+  <>
+  <HelloContainer> {React.string("In Hello")} </HelloContainer>
+    <Link href="/">{React.string("back home")}</Link>
+  </>
 }));
 
 let routes = Routes.one_of([homeRoute, helloRoute]);
