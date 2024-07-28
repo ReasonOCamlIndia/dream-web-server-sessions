@@ -16,12 +16,10 @@ module Container = [%styled.section
 
 [@react.component]
 let make = () => {
-  let hey = React.string("hey");
   let (count, setCount) = useState(0);
   <Container blah=`flex>
     <Link href="/hello">{React.string("to hello")}</Link>
     <section className="centered">
-      <p>{switch(true) { | true => hey | false => React.string("false")}}</p>
       <section>
         {React.string(" clicked " ++ Int.to_string(count) ++ " times")}
       </section>
